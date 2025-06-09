@@ -1,0 +1,10 @@
+# .dockerignore
+node_modules/      # Игнорируем папку node_modules, так как мы устанавливаем зависимости внутри контейнера
+npm-debug.log      # Логи от npm
+.git/              # Папка Git-репозитория
+.gitignore         # Сам файл .gitignore
+.env               # Файлы переменных окружения
+.DS_Store          # Файлы macOS
+*.log              # Все файлы с расширением .log
+Dockerfile         # Сам Dockerfile
+README.md          # Файл README (не нужен в образе)
