@@ -1,6 +1,23 @@
 {
+  "name": "my-devops-node-app",
+  "version": "1.0.0",
+  "description": "Простой веб-сервер на Node.js для демонстрации навыков DevOps.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "devops",
+    "docker"
+  ],
+  "author": "Artem Rivnyi",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^2.2.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "morgan": "^1.10.0"
   }
 }

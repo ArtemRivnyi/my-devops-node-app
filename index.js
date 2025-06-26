@@ -2,9 +2,14 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const morgan = require('morgan'); // Импорт модуля morgan
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Использование morgan для логирования HTTP-запросов
+// 'combined' - это один из стандартных форматов логов, который включает информацию о запросе, ответе и времени.
+app.use(morgan('combined'));
 
 console.log(`[Server] Приложение запускается на порту: ${PORT}`);
 console.log(`[Server] Текущая директория: ${__dirname}`);
@@ -37,6 +42,8 @@ const sendHtmlFile = (fileName, req, res) => {
 
 // Маршрут для главной страницы
 app.get('/', (req, res) => {
+  // Добавляем специфичный лог для корневого пути с отметкой времени и IP-адресом
+  console.log(`[${new Date().toISOString()}] Запрос к корневому пути от IP: ${req.ip}`);
   sendHtmlFile('index.html', req, res);
 });
 
