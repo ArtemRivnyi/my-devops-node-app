@@ -26,31 +26,32 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Шаг 2: Вход в Docker Hub (необязательно, но полезно, если вы хотите публиковать образ).
-    # Если вы планируете публиковать образ в Docker Hub, вам нужно будет настроить
-    # секреты репозитория (DOCKER_USERNAME, DOCKER_PASSWORD).
-    # Для простой сборки этот шаг можно пропустить.
-    #- name: Log in to Docker Hub
-    #  uses: docker/login-action@v3
-    #  with:
-    #    username: ${{ secrets.DOCKER_USERNAME }}
-    #    password: ${{ secrets.DOCKER_PASSWORD }}
+    # Шаг 2: Настройка Node.js.
+    # Этот шаг устанавливает Node.js на раннер, что необходимо для выполнения 'npm install' и 'npm test'.
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18' # Укажите версию Node.js, которую вы используете или предпочитаете
 
-    # Шаг 3: Настройка Docker Buildx (рекомендуется для современных сборок).
-    # Использует action 'docker/setup-buildx-action@v3' для настройки Buildx,
-    # который обеспечивает более быстрые и эффективные сборки.
+    # Шаг 3: Установка зависимостей Node.js.
+    # Запускает 'npm install' для установки всех зависимостей, включая devDependencies,
+    # которые нужны для тестирования.
+    - name: Install Node.js dependencies
+      run: npm install
+
+    # Шаг 4: Запуск тестов.
+    # Выполняет команду 'npm test', которая, как мы настроили, запускает Mocha.
+    - name: Run tests
+      run: npm test
+
+    # Шаг 5: Настройка Docker Buildx (рекомендуется для современных сборок).
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    # Шаг 4: Сборка Docker-образа.
-    # Использует action 'docker/build-push-action@v5' для сборки образа.
-    # Мы указываем '.' в качестве контекста сборки (текущая директория)
-    # и тег для образа.
+    # Шаг 6: Сборка Docker-образа.
     - name: Build Docker image
       uses: docker/build-push-action@v5
       with:
-        context: . # Контекст сборки - текущая директория репозитория
-        push: false # Устанавливаем 'false', так как мы пока не публикуем образ
-        tags: my-devops-node-app:latest # Тег для вашего образа
-        # Если бы мы публиковали, то 'tags: ${{ secrets.DOCKER_USERNAME }}/my-devops-node-app:latest'
-        # и 'push: true'
+        context: .
+        push: false
+        tags: my-devops-node-app:latest
