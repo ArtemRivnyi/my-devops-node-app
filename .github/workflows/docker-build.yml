@@ -39,17 +39,23 @@ jobs:
     - name: Install Node.js dependencies
       run: npm install
 
-    # Шаг 4: Запуск тестов.
-    # Выполняет команду 'mocha' напрямую из директории node_modules/.bin/.
-    # Это более явный способ запуска исполняемого файла.
-    - name: Run tests
-      run: ./node_modules/.bin/mocha # Изменено с 'npx mocha' на явный путь
+    # Шаг 4: Установка прав на выполнение для Mocha.
+    # Этот шаг явно добавляет права на выполнение для бинарного файла Mocha.
+    # Это должно решить проблему 'Permission denied'.
+    - name: Make Mocha executable
+      run: chmod +x ./node_modules/.bin/mocha
 
-    # Шаг 5: Настройка Docker Buildx (рекомендуется для современных сборок).
+    # Шаг 5: Запуск тестов.
+    # Возвращаемся к стандартной команде 'npm test', которая теперь должна работать,
+    # так как права на выполнение установлены.
+    - name: Run tests
+      run: npm test # Возвращено к 'npm test'
+
+    # Шаг 6: Настройка Docker Buildx (рекомендуется для современных сборок).
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    # Шаг 6: Сборка Docker-образа.
+    # Шаг 7: Сборка Docker-образа.
     - name: Build Docker image
       uses: docker/build-push-action@v5
       with:
