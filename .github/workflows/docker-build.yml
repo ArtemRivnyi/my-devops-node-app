@@ -1,0 +1,56 @@
+# .github/workflows/docker-build.yml
+
+# Название рабочего процесса, которое будет отображаться в интерфейсе GitHub Actions.
+name: Docker Image CI
+
+# Определяет, когда этот рабочий процесс будет запускаться.
+on:
+  # Запускать при каждом push в ветку 'main'.
+  push:
+    branches: [ main ]
+  # Запускать вручную из интерфейса GitHub Actions.
+  workflow_dispatch:
+
+# Задачи (jobs), которые будут выполняться в рамках этого рабочего процесса.
+jobs:
+  # Название задачи.
+  build:
+    # Тип раннера (виртуальной машины), на которой будет выполняться задача.
+    runs-on: ubuntu-latest
+
+    # Шаги (steps) для выполнения задачи.
+    steps:
+    # Шаг 1: Проверка кода.
+    # Использует action 'actions/checkout@v4' для клонирования вашего репозитория
+    # на раннер GitHub Actions. Это необходимо, чтобы получить доступ к Dockerfile и коду.
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Шаг 2: Вход в Docker Hub (необязательно, но полезно, если вы хотите публиковать образ).
+    # Если вы планируете публиковать образ в Docker Hub, вам нужно будет настроить
+    # секреты репозитория (DOCKER_USERNAME, DOCKER_PASSWORD).
+    # Для простой сборки этот шаг можно пропустить.
+    #- name: Log in to Docker Hub
+    #  uses: docker/login-action@v3
+    #  with:
+    #    username: ${{ secrets.DOCKER_USERNAME }}
+    #    password: ${{ secrets.DOCKER_PASSWORD }}
+
+    # Шаг 3: Настройка Docker Buildx (рекомендуется для современных сборок).
+    # Использует action 'docker/setup-buildx-action@v3' для настройки Buildx,
+    # который обеспечивает более быстрые и эффективные сборки.
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    # Шаг 4: Сборка Docker-образа.
+    # Использует action 'docker/build-push-action@v5' для сборки образа.
+    # Мы указываем '.' в качестве контекста сборки (текущая директория)
+    # и тег для образа.
+    - name: Build Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: . # Контекст сборки - текущая директория репозитория
+        push: false # Устанавливаем 'false', так как мы пока не публикуем образ
+        tags: my-devops-node-app:latest # Тег для вашего образа
+        # Если бы мы публиковали, то 'tags: ${{ secrets.DOCKER_USERNAME }}/my-devops-node-app:latest'
+        # и 'push: true'
