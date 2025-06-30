@@ -1,11 +1,17 @@
 // index.js
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const morgan = require('morgan'); // Импорт модуля morgan
+// Импорт модулей с использованием синтаксиса ES-модулей
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url'; // Для корректной работы __dirname в ES-модулях
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Для получения __filename и __dirname в контексте ES-модулей
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Использование morgan для логирования HTTP-запросов
 // 'combined' - это один из стандартных форматов логов, который включает информацию о запросе, ответе и времени.
