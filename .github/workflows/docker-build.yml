@@ -40,10 +40,10 @@ jobs:
       run: npm install
 
     # Шаг 4: Запуск тестов.
-    # Выполняет команду 'npx mocha', что позволяет корректно запустить Mocha
-    # из node_modules/.bin/ в среде GitHub Actions.
+    # Выполняет команду 'mocha' напрямую из директории node_modules/.bin/.
+    # Это более явный способ запуска исполняемого файла.
     - name: Run tests
-      run: npx mocha # Изменено с 'npm test' на 'npx mocha'
+      run: ./node_modules/.bin/mocha # Изменено с 'npx mocha' на явный путь
 
     # Шаг 5: Настройка Docker Buildx (рекомендуется для современных сборок).
     - name: Set up Docker Buildx
