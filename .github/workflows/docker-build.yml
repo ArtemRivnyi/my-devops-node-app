@@ -39,9 +39,10 @@ jobs:
       run: npm install
 
     # Шаг 4: Запуск тестов.
-    # Выполняет npm test для запуска Mocha.
+    # Выполняет Mocha с помощью 'npm exec', что является более надежным способом
+    # запуска исполняемых файлов пакетов в CI/CD средах.
     - name: Run tests
-      run: npm test
+      run: npm exec mocha # Изменено с 'npm test' на 'npm exec mocha'
 
     # Шаг 5: Настройка Docker Buildx.
     # Настраивает Buildx для эффективной сборки Docker-образов.
