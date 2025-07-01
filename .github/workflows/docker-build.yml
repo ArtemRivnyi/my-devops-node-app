@@ -22,43 +22,45 @@ jobs:
     steps:
     # Шаг 1: Проверка кода.
     # Использует action 'actions/checkout@v4' для клонирования вашего репозитория
-    # на раннер GitHub Actions. Это необходимо, чтобы получить доступ к Dockerfile и коду.
+    # на раннер GitHub Actions.
     - name: Checkout repository
       uses: actions/checkout@v4
 
     # Шаг 2: Настройка Node.js.
-    # Этот шаг устанавливает Node.js на раннер, что необходимо для выполнения 'npm install' и 'npm test'.
+    # Устанавливает Node.js на раннер для выполнения npm команд.
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18' # Укажите версию Node.js, которую вы используете или предпочитаете
+        node-version: '18'
 
     # Шаг 3: Установка зависимостей Node.js.
-    # Запускает 'npm install' для установки всех зависимостей, включая devDependencies,
-    # которые нужны для тестирования.
+    # Устанавливает все зависимости проекта, включая devDependencies для тестов.
     - name: Install Node.js dependencies
       run: npm install
 
-    # Шаг 4: Установка прав на выполнение для Mocha.
-    # Этот шаг явно добавляет права на выполнение для бинарного файла Mocha.
-    # Это должно решить проблему 'Permission denied'.
-    - name: Make Mocha executable
-      run: chmod +x ./node_modules/.bin/mocha
-
-    # Шаг 5: Запуск тестов.
-    # Возвращаемся к стандартной команде 'npm test', которая теперь должна работать,
-    # так как права на выполнение установлены.
+    # Шаг 4: Запуск тестов.
+    # Выполняет npm test для запуска Mocha.
     - name: Run tests
-      run: npm test # Возвращено к 'npm test'
+      run: npm test
 
-    # Шаг 6: Настройка Docker Buildx (рекомендуется для современных сборок).
+    # Шаг 5: Настройка Docker Buildx.
+    # Настраивает Buildx для эффективной сборки Docker-образов.
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    # Шаг 7: Сборка Docker-образа.
-    - name: Build Docker image
+    # Шаг 6: Вход в Docker Hub.
+    # Использует секреты GitHub для безопасного входа в Docker Hub.
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }} # Имя пользователя из секрета GitHub
+        password: ${{ secrets.DOCKER_PASSWORD }} # Пароль из секрета GitHub
+
+    # Шаг 7: Сборка и публикация Docker-образа.
+    # Собирает образ и публикует его в Docker Hub.
+    - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
-        push: false
-        tags: my-devops-node-app:latest
+        push: true # Устанавливаем 'true' для публикации образа
+        tags: ${{ secrets.DOCKER_USERNAME }}/my-devops-node-app:latest # Тег образа с вашим Docker ID
