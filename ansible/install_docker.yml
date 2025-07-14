@@ -1,0 +1,66 @@
+# ansible/install_docker.yml
+---
+- name: Install Docker on Ubuntu/Debian VM
+  hosts: your_vm_group # Это имя группы хостов в вашем инвентаре Ansible
+  become: true # Выполнять задачи с правами sudo
+
+  tasks:
+    - name: Update apt package cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install required packages for Docker
+      ansible.builtin.apt:
+        name:
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+        state: present
+
+    - name: Add Docker GPG key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+        keyring: /etc/apt/keyrings/docker.gpg # Для современных версий Ubuntu/Debian
+
+    - name: Add Docker APT repository
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+        state: present
+        filename: docker
+
+    - name: Install Docker Engine, containerd, and Docker Compose (CLI)
+      ansible.builtin.apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+        update_cache: yes
+
+    - name: Add current user to docker group
+      ansible.builtin.user:
+        name: "{{ ansible_user }}" # Пользователь, под которым Ansible подключается
+        groups: docker
+        append: yes
+
+    - name: Ensure docker service is running and enabled
+      ansible.builtin.systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Verify Docker installation
+      ansible.builtin.command: docker run hello-world
+      register: docker_hello_world_result
+      changed_when: false # Эта команда не изменяет состояние системы
+      failed_when: "'Hello from Docker!' not in docker_hello_world_result.stdout"
+      ignore_errors: true # Игнорируем ошибку, если образ еще не загружен
+
+    - name: Display Docker hello-world result
+      ansible.builtin.debug:
+        var: docker_hello_world_result.stdout_lines
+      when: docker_hello_world_result is defined and docker_hello_world_result.stdout is defined

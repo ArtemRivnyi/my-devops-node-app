@@ -1,0 +1,44 @@
+# ansible/deploy_app.yml
+---
+- name: Deploy Node.js App on Docker
+  hosts: your_vm_group # То же имя группы хостов, что и выше
+  become: true # Выполнять задачи с правами sudo
+
+  tasks:
+    - name: Ensure docker group membership for ansible user
+      ansible.builtin.user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+      # Этот шаг важен, так как членство в группе docker требует перезапуска сессии
+      # или выхода/входа пользователя. В Ansible это может быть не сразу применено.
+      # Но мы его все равно включаем для надежности.
+
+    - name: Pull Docker image from Docker Hub
+      community.docker.docker_image:
+        name: dxrklxrd/my-devops-node-app # Ваш Docker ID / Имя образа
+        tag: latest
+        source: pull
+        state: present
+
+    - name: Stop and remove old container if it exists
+      community.docker.docker_container:
+        name: my-devops-app-container
+        state: absent
+      ignore_errors: true # Игнорируем ошибку, если контейнера нет
+
+    - name: Run new Docker container
+      community.docker.docker_container:
+        name: my-devops-app-container
+        image: dxrklxrd/my-devops-node-app:latest
+        state: started
+        ports:
+          - "80:3000" # Маппинг порта хоста (80) на порт контейнера (3000)
+        restart_policy: always # Автоматический перезапуск контейнера
+        # Добавьте переменные окружения, если они нужны вашему приложению
+        # env:
+        #   NODE_ENV: production
+
+    - name: Display application URL
+      ansible.builtin.debug:
+        msg: "Your Node.js app should be running at http://{{ ansible_host }}"
