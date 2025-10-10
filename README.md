@@ -18,7 +18,9 @@ Git & GitHub: For version control and repository hosting.
 morgan (Node.js middleware): For HTTP request logging in the application console.
 Mocha & Chai: (Optional/Placeholder) Testing framework and assertion library intended for unit testing the application.
 
-Project Structure
+## Project Structure
+
+```text
 my-devops-node-app/
 ├── .git/                               # Git repository folder
 ├── .github/                            # GitHub Actions configuration (for future cloud steps)
@@ -41,6 +43,8 @@ my-devops-node-app/
 ├── package.json                        # Project description and dependencies
 ├── package-lock.json                   # Locked dependency versions
 └── README.md                           # This file
+```
+
 
 Running the Application Locally (with Local CI/CD Pipeline)
 This pipeline automates the building of a Docker image and running a container on your local machine.
