@@ -1,10 +1,6 @@
 # 🚀 My DevOps Node.js App  
 ### 🧩 DevOps Demo Project: Containerized Web Application with Local CI/CD  
 
-This project serves as a **practical demonstration of core DevOps skills**, covering web application development, containerization, and local CI/CD automation.
-
----
-
 ## 🎯 Project Goals
 
 - 🖥️ Develop a simple web application using **Node.js** and **Express.js**  
