@@ -187,8 +187,11 @@ This project demonstrates how to:
 *   Simulate DevOps CI/CD workflows
 *   Prepare for real-world cloud deployment
 
-### 💡 Author
+## 🧰 Maintainer
 
-**Artem Rivnyi** — _DevOps Enthusiast & Node.js Developer_  
-📫 [GitHub Profile](https://github.com/ArtemRivnyi)
+**Artem Rivnyi** — Junior Technical Support / DevOps Enthusiast
+
+- 📧 [artemrivnyi@outlook.com](mailto:artemrivnyi@outlook.com)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/artemrivnyi/)
+
 
