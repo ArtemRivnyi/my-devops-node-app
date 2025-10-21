@@ -10,10 +10,10 @@ This project serves as a practical demonstration of core DevOps skills, covering
 *   [🧠 Technologies and Practices Used](#-technologies-and-practices-used)
 *   [🗂️ Project Structure](#️-project-structure)
 *   [⚙️ Running the Application Locally (with Local CI/CD)](#️-running-the-application-locally-with-local-cicd)
-    *   [1️⃣ Clone the Repository](#-1%EF%B8%8F%E2%83%A3-clone-the-repository)
-    *   [2️⃣ Ensure Docker Desktop is running](#-2%EF%B8%8F%E2%83%A3-ensure-docker-desktop-is-running)
-    *   [3️⃣ Run the local CI/CD pipeline](#-3%EF%B8%8F%E2%83%A3-run-the-local-cicd-pipeline)
-    *   [4️⃣ Access the running app](#-4%EF%B8%8F%E2%83%A3-access-the-running-app)
+    *   [Clone the Repository](#clone-the-repository)
+    *   [Ensure Docker Desktop is running](#ensure-docker-desktop-is-running)
+    *   [Run the local CI/CD pipeline](#run-the-local-cicd-pipeline)
+    *   [Access the running app](#access-the-running-app)
 *   [📊 Monitoring and Logging (Locally)](#-monitoring-and-logging-locally)
 *   [🧹 Managing the Local Container](#-managing-the-local-container)
 *   [☁️ Conceptual Cloud Deployment (No Cost Setup)](#%EF%B8%8F-conceptual-cloud-deployment-no-cost-setup)
@@ -70,7 +70,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 
 This pipeline automates the **building of a Docker image** and **running a container** locally.
 
-### 🧩 1. Clone the repository
+### Clone the repository
 
 ```shell
 git clone https://github.com/YOUR_USERNAME/my-devops-node-app.git
@@ -79,11 +79,11 @@ cd my-devops-node-app
 
 > 🔁 Replace `YOUR_USERNAME` with your actual GitHub username.
 
-### 🐋 2. Ensure Docker Desktop is running
+### Ensure Docker Desktop is running
 
 You must have Docker installed and running before executing the script.
 
-### 💻 3. Run the local CI/CD pipeline
+### Run the local CI/CD pipeline
 
 Open **PowerShell (not as Administrator)** and run:
 
@@ -104,7 +104,7 @@ Set-ExecutionPolicy RemoteSigned
 
 Then rerun the script in a normal PowerShell window.
 
-### 🌐 4. Access the running app
+### Access the running app
 
 After successful deployment, open:  
 👉 [http://localhost:3000/]()
