@@ -1,32 +1,48 @@
-# 🚀 My DevOps Node.js App  
-### 🧩 DevOps Demo Project: Containerized Web Application with Local CI/CD  
+# 🚀 My DevOps Node.js App
+
+### 🧩 DevOps Demo Project: Containerized Web Application with Local CI/CD
+
+This project serves as a practical demonstration of core DevOps skills, covering web application development, containerization, and local CI/CD automation. It aims to provide a comprehensive example for building, testing, and deploying a simple Node.js web application.
+
+## 📝 Table of Contents
+
+*   [🎯 Project Goals]()
+*   [🧠 Technologies and Practices Used]()
+*   [🗂️ Project Structure]()
+*   [⚙️ Running the Application Locally (with Local CI/CD)]()
+    *   [1️⃣ Clone the Repository]()
+    *   [2️⃣ Ensure Docker Desktop is running]()
+    *   [3️⃣ Run the local CI/CD pipeline]()
+    *   [4️⃣ Access the running app]()
+*   [📊 Monitoring and Logging (Locally)]()
+*   [🧹 Managing the Local Container]()
+*   [☁️ Conceptual Cloud Deployment (No Cost Setup)]()
+*   [🧭 Next Steps for Project Development]()
+*   [🏁 Summary]()
+*   [💡 Author]()
 
 ## 🎯 Project Goals
 
-- 🖥️ Develop a simple web application using **Node.js** and **Express.js**  
-- 🐳 Containerize the app using **Docker** for portability and isolation  
-- ⚙️ Set up an automated **local CI/CD pipeline** (build, test, run)  
-- ☁️ Demonstrate understanding of **cloud deployment & monitoring principles**
-
----
+*   🖥️ Develop a simple web application using **Node.js** and **Express.js**
+*   🐳 Containerize the app using **Docker** for portability and isolation
+*   ⚙️ Set up an automated **local CI/CD pipeline** (build, test, run)
+*   ☁️ Demonstrate understanding of **cloud deployment & monitoring principles**
 
 ## 🧠 Technologies and Practices Used
 
 | Tool / Concept | Purpose |
-|----------------|----------|
+| :-- | :-- |
 | **Node.js & Express.js** | Lightweight web server development |
 | **HTML & CSS** | User interface for static pages |
 | **Docker** | Containerization and image management |
 | **PowerShell** | Local CI/CD automation (build & run) |
 | **Git & GitHub** | Version control and remote repository |
 | **morgan** | Request logging middleware for Node.js |
-| **Mocha & Chai** *(optional)* | Testing and assertions framework |
-
----
+| **Mocha & Chai** _(optional)_ | Testing and assertions framework |
 
 ## 🗂️ Project Structure
 
-```text
+```
 my-devops-node-app/
 ├── .git/                               # Git repository folder
 ├── .github/                            # GitHub Actions configuration (for future cloud steps)
@@ -51,88 +67,82 @@ my-devops-node-app/
 └── README.md                           # This file
 ```
 
----
-
 ## ⚙️ Running the Application Locally (with Local CI/CD)
 
 This pipeline automates the **building of a Docker image** and **running a container** locally.
 
 ### 🧩 1. Clone the repository
-```bash
+
+```shell
 git clone https://github.com/YOUR_USERNAME/my-devops-node-app.git
 cd my-devops-node-app
 ```
 
 > 🔁 Replace `YOUR_USERNAME` with your actual GitHub username.
 
----
-
 ### 🐋 2. Ensure Docker Desktop is running
 
 You must have Docker installed and running before executing the script.
-
----
 
 ### 💻 3. Run the local CI/CD pipeline
 
 Open **PowerShell (not as Administrator)** and run:
 
-```bash
+```shell
 cd C:\path\to\my-devops-node-app
 .\deploy_local.ps1
 ```
 
-If you get an execution policy error like:  
-> *"The term '.\deploy_local.ps1' is not recognized..."*
+If you get an execution policy error like:
+
+> _"The term ".\\deploy\_local.ps1" is not recognized..."_
 
 Run this once as Administrator:
-```bash
+
+```shell
 Set-ExecutionPolicy RemoteSigned
 ```
-Then rerun the script in a normal PowerShell window.
 
----
+Then rerun the script in a normal PowerShell window.
 
 ### 🌐 4. Access the running app
 
 After successful deployment, open:  
-👉 [http://localhost:3000/](http://localhost:3000/)
-
----
+👉 [http://localhost:3000/]()
 
 ## 📊 Monitoring and Logging (Locally)
 
 To view container logs in real-time:
 
-```bash
+```shell
 docker logs my-node-app-container -f
 ```
 
 These logs display:
-- Request information (via `morgan`)
-- Form submission data
-- Any `console.log()` output
 
----
+*   Request information (via `morgan`)
+*   Form submission data
+*   Any `console.log()` output
 
 ## 🧹 Managing the Local Container
 
 Stop the container:
-```bash
+
+```shell
 docker stop my-node-app-container
 ```
 
 Remove the container:
-```bash
+
+```shell
 docker rm my-node-app-container
 ```
 
 Remove the Docker image:
-```bash
+
+```shell
 docker rmi my-node-webapp-local
 ```
-
----
 
 ## ☁️ Conceptual Cloud Deployment (No Cost Setup)
 
@@ -140,55 +150,45 @@ While this demo runs locally, it includes a **conceptual outline for cloud deplo
 
 ### 🔧 Cloud Platform Preparation (GCP Example)
 
-1. Create/select a GCP project  
-2. Enable APIs:  
-   - Cloud Run API  
-   - Artifact Registry API  
-3. Create a **Service Account** with roles:  
-   - *Cloud Run Admin*  
-   - *Artifact Registry Writer*  
-   - *Service Account User*  
-4. Create a **Docker repository** in Artifact Registry  
-
----
+1.  Create/select a GCP project
+2.  Enable APIs:
+    *   Cloud Run API
+    *   Artifact Registry API
+3.  Create a **Service Account** with roles:
+    *   _Cloud Run Admin_
+    *   _Artifact Registry Writer_
+    *   _Service Account User_
+4.  Create a **Docker repository** in Artifact Registry
 
 ### 🚀 Service Provisioning (Cloud Run Example)
 
-- Deploy the Docker image from Artifact Registry  
-- Configure environment variables, memory/CPU limits  
-- Cloud Run auto-scales and provides a public URL  
-
----
+*   Deploy the Docker image from Artifact Registry
+*   Configure environment variables, memory/CPU limits
+*   Cloud Run auto-scales and provides a public URL
 
 ### 📈 Cloud Monitoring & Logging
 
-- Logs (`stdout` / `stderr`) automatically captured by **Cloud Logging**  
-- Metrics (CPU, memory, latency) visualized in **Cloud Monitoring**  
-
----
+*   Logs (`stdout` / `stderr`) automatically captured by **Cloud Logging**
+*   Metrics (CPU, memory, latency) visualized in **Cloud Monitoring**
 
 ## 🧭 Next Steps for Project Development
 
 ✅ Add **unit/integration tests** using Mocha & Chai  
 ✅ Integrate **Docker Compose** into the pipeline  
 ✅ Extend **CI/CD to the Cloud** via GitHub Actions  
-✅ Configure **real-time monitoring** (Cloud Logging / AWS CloudWatch)  
-
----
+✅ Configure **real-time monitoring** (Cloud Logging / AWS CloudWatch)
 
 ## 🏁 Summary
 
 This project demonstrates how to:
-- Build and containerize a Node.js app  
-- Automate local deployment via PowerShell  
-- Simulate DevOps CI/CD workflows  
-- Prepare for real-world cloud deployment  
 
----
+*   Build and containerize a Node.js app
+*   Automate local deployment via PowerShell
+*   Simulate DevOps CI/CD workflows
+*   Prepare for real-world cloud deployment
 
 ### 💡 Author
+
 **Artem Rivnyi** — _DevOps Enthusiast & Node.js Developer_  
 📫 [GitHub Profile](https://github.com/ArtemRivnyi)
-
----
 
