@@ -6,20 +6,20 @@ This project serves as a practical demonstration of core DevOps skills, covering
 
 ## 📝 Table of Contents
 
-*   [🎯 Project Goals]()
-*   [🧠 Technologies and Practices Used]()
-*   [🗂️ Project Structure]()
-*   [⚙️ Running the Application Locally (with Local CI/CD)]()
-    *   [1️⃣ Clone the Repository]()
-    *   [2️⃣ Ensure Docker Desktop is running]()
-    *   [3️⃣ Run the local CI/CD pipeline]()
-    *   [4️⃣ Access the running app]()
-*   [📊 Monitoring and Logging (Locally)]()
-*   [🧹 Managing the Local Container]()
-*   [☁️ Conceptual Cloud Deployment (No Cost Setup)]()
-*   [🧭 Next Steps for Project Development]()
-*   [🏁 Summary]()
-*   [💡 Author]()
+*   [🎯 Project Goals](#-project-goals)
+*   [🧠 Technologies and Practices Used](#-technologies-and-practices-used)
+*   [🗂️ Project Structure](#️-project-structure)
+*   [⚙️ Running the Application Locally (with Local CI/CD)](#️-running-the-application-locally-with-local-cicd)
+    *   [1️⃣ Clone the Repository](#-1%EF%B8%8F%E2%83%A3-clone-the-repository)
+    *   [2️⃣ Ensure Docker Desktop is running](#-2%EF%B8%8F%E2%83%A3-ensure-docker-desktop-is-running)
+    *   [3️⃣ Run the local CI/CD pipeline](#-3%EF%B8%8F%E2%83%A3-run-the-local-cicd-pipeline)
+    *   [4️⃣ Access the running app](#-4%EF%B8%8F%E2%83%A3-access-the-running-app)
+*   [📊 Monitoring and Logging (Locally)](#-monitoring-and-logging-locally)
+*   [🧹 Managing the Local Container](#-managing-the-local-container)
+*   [☁️ Conceptual Cloud Deployment (No Cost Setup)](#%EF%B8%8F-conceptual-cloud-deployment-no-cost-setup)
+*   [🧭 Next Steps for Project Development](#-next-steps-for-project-development)
+*   [🏁 Summary](#-summary)
+*   [💡 Author](#-author)
 
 ## 🎯 Project Goals
 
@@ -42,30 +42,29 @@ This project serves as a practical demonstration of core DevOps skills, covering
 
 ## 🗂️ Project Structure
 
-```
-my-devops-node-app/
-├── .git/                               # Git repository folder
-├── .github/                            # GitHub Actions configuration (for future cloud steps)
-│   └── workflows/
-│       └── main.yml                    # Placeholder for GitHub Actions CI/CD pipeline
-├── ansible/                            # (Optional) Example of Ansible usage
-├── node_modules/                       # Installed Node.js dependencies
-├── public/                             # Static files (HTML, CSS)
-│   ├── index.html
-│   ├── about.html
-│   ├── contact.html
-│   └── style.css
-├── test/                               # Placeholder for test files
-│   └── app.test.js
-├── .dockerignore                       # Files and folders ignored during Docker image build
-├── deploy_local.ps1                    # PowerShell script for local CI/CD pipeline
-├── docker-compose.yml                  # Example Docker Compose service definitions
-├── Dockerfile                          # Instructions for building the Docker image
-├── index.js                            # Main Node.js application file
-├── package.json                        # Project description and dependencies
-├── package-lock.json                   # Locked dependency versions
-└── README.md                           # This file
-```
+    my-devops-node-app/
+    ├── .git/                               # Git repository folder
+    ├── .github/                            # GitHub Actions configuration (for future cloud steps)
+    │   └── workflows/
+    │       └── main.yml                    # Placeholder for GitHub Actions CI/CD pipeline
+    ├── ansible/                            # (Optional) Example of Ansible usage
+    ├── node_modules/                       # Installed Node.js dependencies
+    ├── public/                             # Static files (HTML, CSS)
+    │   ├── index.html
+    │   ├── about.html
+    │   ├── contact.html
+    │   └── style.css
+    ├── test/                               # Placeholder for test files
+    │   └── app.test.js
+    ├── .dockerignore                       # Files and folders ignored during Docker image build
+    ├── deploy_local.ps1                    # PowerShell script for local CI/CD pipeline
+    ├── docker-compose.yml                  # Example Docker Compose service definitions
+    ├── Dockerfile                          # Instructions for building the Docker image
+    ├── index.js                            # Main Node.js application file
+    ├── package.json                        # Project description and dependencies
+    ├── package-lock.json                   # Locked dependency versions
+    └── README.md                           # This file
+    
 
 ## ⚙️ Running the Application Locally (with Local CI/CD)
 
@@ -191,7 +190,5 @@ This project demonstrates how to:
 
 **Artem Rivnyi** — Junior Technical Support / DevOps Enthusiast
 
-- 📧 [artemrivnyi@outlook.com](mailto:artemrivnyi@outlook.com)
-- 🔗 [LinkedIn](https://www.linkedin.com/in/artemrivnyi/)
-
-
+*   📧 [artemrivnyi@outlook.com](mailto:artemrivnyi@outlook.com)
+*   🔗 [LinkedIn](https://www.linkedin.com/in/artem-rivnyi/)
