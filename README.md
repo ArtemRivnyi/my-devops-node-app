@@ -191,4 +191,5 @@ This project demonstrates how to:
 **Artem Rivnyi** — Junior Technical Support / DevOps Enthusiast
 
 *   📧 [artemrivnyi@outlook.com](mailto:artemrivnyi@outlook.com)
+*   **Email:** [artemrivnyi@outlook.com](mailto:artemrivnyi@outlook.com)
 *   🔗 [LinkedIn](https://www.linkedin.com/in/artem-rivnyi/)
