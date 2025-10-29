@@ -14,7 +14,6 @@ This project serves as a practical demonstration of core DevOps skills, covering
 
 *   [🎯 Project Goals](#-project-goals)
 *   [🧠 Technologies and Practices Used](#-technologies-and-practices-used)
-*   [🗂️ Project Structure](#️-project-structure)
 *   [⚙️ Running the Application Locally (with Local CI/CD)](#️-running-the-application-locally-with-local-cicd)
     *   [Clone the Repository](#clone-the-repository)
     *   [Ensure Docker Desktop is running](#ensure-docker-desktop-is-running)
@@ -46,32 +45,6 @@ This project serves as a practical demonstration of core DevOps skills, covering
 | **Git & GitHub** | Version control and remote repository |
 | **morgan** | Request logging middleware for Node.js |
 | **Mocha & Chai** _(optional)_ | Testing and assertions framework |
-
-## 🗂️ Project Structure
-
-    my-devops-node-app/
-    ├── .git/                               # Git repository folder
-    ├── .github/                            # GitHub Actions configuration (for future cloud steps)
-    │   └── workflows/
-    │       └── main.yml                    # Placeholder for GitHub Actions CI/CD pipeline
-    ├── ansible/                            # (Optional) Example of Ansible usage
-    ├── node_modules/                       # Installed Node.js dependencies
-    ├── public/                             # Static files (HTML, CSS)
-    │   ├── index.html
-    │   ├── about.html
-    │   ├── contact.html
-    │   └── style.css
-    ├── test/                               # Placeholder for test files
-    │   └── app.test.js
-    ├── .dockerignore                       # Files and folders ignored during Docker image build
-    ├── deploy_local.ps1                    # PowerShell script for local CI/CD pipeline
-    ├── docker-compose.yml                  # Example Docker Compose service definitions
-    ├── Dockerfile                          # Instructions for building the Docker image
-    ├── index.js                            # Main Node.js application file
-    ├── package.json                        # Project description and dependencies
-    ├── package-lock.json                   # Locked dependency versions
-    └── README.md                           # This file
-    
 
 ## ⚙️ Running the Application Locally (with Local CI/CD)
 
