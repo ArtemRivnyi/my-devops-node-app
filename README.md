@@ -25,7 +25,11 @@ This project serves as a practical demonstration of core DevOps skills, covering
 *   [☁️ Conceptual Cloud Deployment (No Cost Setup)](#%EF%B8%8F-conceptual-cloud-deployment-no-cost-setup)
 *   [🧭 Next Steps for Project Development](#-next-steps-for-project-development)
 *   [🏁 Summary](#-summary)
-*   [💡 Author](#-author)
+*   - [📄 License](#-license)
+- ## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+*   [💡 Maintainer](#-maintainer)
 
 ## 🎯 Project Goals
 
@@ -191,6 +195,10 @@ This project demonstrates how to:
 *   Automate local deployment via PowerShell
 *   Simulate DevOps CI/CD workflows
 *   Prepare for real-world cloud deployment
+
+- ## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🧰 Maintainer
 
