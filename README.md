@@ -26,9 +26,6 @@ This project serves as a practical demonstration of core DevOps skills, covering
 *   [🧭 Next Steps for Project Development](#-next-steps-for-project-development)
 *   [🏁 Summary](#-summary)
 *   - [📄 License](#-license)
-- ## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 *   [💡 Maintainer](#-maintainer)
 
 ## 🎯 Project Goals
