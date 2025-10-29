@@ -25,7 +25,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 *   [☁️ Conceptual Cloud Deployment (No Cost Setup)](#%EF%B8%8F-conceptual-cloud-deployment-no-cost-setup)
 *   [🧭 Next Steps for Project Development](#-next-steps-for-project-development)
 *   [🏁 Summary](#-summary)
-*   - [📄 License](#-license)
+*   [📄 License](#-license)
 *   [💡 Maintainer](#-maintainer)
 
 ## 🎯 Project Goals
