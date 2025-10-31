@@ -1,7 +1,5 @@
 # 🚀 My DevOps Node.js App
 
-[![GitHub Actions Status](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml)
-
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
