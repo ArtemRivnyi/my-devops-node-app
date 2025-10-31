@@ -87,7 +87,7 @@ After successful deployment, open:
 
 The project utilizes GitHub Actions for Continuous Integration and Continuous Delivery. The flow is as follows:
 
-![CI/CD Flow Diagram](https://github.com/user-attachments/assets/a0e97176-33bf-4204-866b-e9f84f)
+<img src="https://github.com/user-attachments/assets/58fec387-c00a-4986-9542-5baba589336b" alt="CI/CD Flow Diagram" width="300" height="807">
 
 ### Pipeline Demo (GIF)
 
