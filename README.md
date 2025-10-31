@@ -1,11 +1,14 @@
 # 🚀 My DevOps Node.js App
 
+[![GitHub Actions Status](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml)
+
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)](https://docs.microsoft.com/en-us/powershell/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docker Image CI](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ### 🧩 DevOps Demo Project: Containerized Web Application with Local CI/CD
 
@@ -16,6 +19,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 *   [🎯 Project Goals](#-project-goals)
 *   [🧠 Technologies and Practices Used](#-technologies-and-practices-used)
 *   [⚙️ Running the Application Locally (with Local CI/CD)](#️-running-the-application-locally-with-local-cicd)
+*   [🛠️ CI/CD Flow and Demo](#️-ci/cd-flow-and-demo)
     *   [Clone the Repository](#clone-the-repository)
     *   [Ensure Docker Desktop is running](#ensure-docker-desktop-is-running)
     *   [Run the local CI/CD pipeline](#run-the-local-cicd-pipeline)
@@ -66,29 +70,32 @@ You must have Docker installed and running before executing the script.
 
 ### Run the local CI/CD pipeline
 
+For detailed setup and troubleshooting, see the dedicated [SETUP.md](SETUP.md) file.
+
 Open **PowerShell (not as Administrator)** and run:
 
 ```shell
-cd C:\path\to\my-devops-node-app
 .\deploy_local.ps1
 ```
-
-If you get an execution policy error like:
-
-> _"The term ".\\deploy\_local.ps1" is not recognized..."_
-
-Run this once as Administrator:
-
-```shell
-Set-ExecutionPolicy RemoteSigned
-```
-
-Then rerun the script in a normal PowerShell window.
 
 ### Access the running app
 
 After successful deployment, open:  
 👉 [http://localhost:3000/]()
+
+## 🛠️ CI/CD Flow and Demo
+
+### Architecture Diagram (CI/CD Flow)
+
+The project utilizes GitHub Actions for Continuous Integration and Continuous Delivery. The flow is as follows:
+
+![CI/CD Flow Diagram](https://github.com/user-attachments/assets/a0e97176-33bf-4204-866b-e9f84f)
+
+### Pipeline Demo (GIF)
+
+This animated GIF demonstrates the successful execution of the GitHub Actions pipeline, showing key steps like testing and Docker image push.
+
+![CI/CD Pipeline Demo](https://github.com/user-attachments/assets/0216e7d2-d92a-45d6-b5a2-aee3cb74b55e)
 
 ## 📊 Monitoring and Logging (Locally)
 
