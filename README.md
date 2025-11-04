@@ -91,12 +91,6 @@ The project utilizes GitHub Actions for Continuous Integration and Continuous De
 
 ![CI/CD Flow Diagram](./assets/CI_CD_Flow.png)
 
-### Pipeline Demo (GIF)
-
-This animated GIF demonstrates the successful execution of the GitHub Actions pipeline, showing key steps like testing and Docker image push.
-
-![CI/CD Pipeline Demo](./assets/CI_CD_Demo.gif)
-
 ## 📊 Monitoring and Logging (Locally)
 
 To view container logs in real-time:
