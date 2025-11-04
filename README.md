@@ -89,13 +89,7 @@ After successful deployment, open:
 
 The project utilizes GitHub Actions for Continuous Integration and Continuous Delivery. The flow is as follows:
 
-![CI/CD Flow Diagram](CI_CD_Flow.png)
-
-### Pipeline Demo (GIF)
-
-This animated GIF demonstrates the successful execution of the GitHub Actions pipeline, showing key steps like testing and Docker image push.
-
-![CI/CD Pipeline Demo](CI_CD_Demo.gif)
+![CI/CD Flow Diagram](./assets/CI_CD_Flow.png)
 
 ## 📊 Monitoring and Logging (Locally)
 
