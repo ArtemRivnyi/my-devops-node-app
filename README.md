@@ -50,7 +50,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 | **PowerShell** | Local CI/CD automation (build & run) |
 | **Git & GitHub** | Version control and remote repository |
 | **morgan** | Request logging middleware for Node.js |
-| **Mocha & Chai** _(optional)_ | Testing and assertions framework |
+| **Jest & Supertest** | API testing and assertions framework |
 
 ## ⚙️ Running the Application Locally (with Local CI/CD)
 
@@ -155,10 +155,38 @@ While this demo runs locally, it includes a **conceptual outline for cloud deplo
 
 ## 🧭 Next Steps for Project Development
 
-✅ Add **unit/integration tests** using Mocha & Chai  
+✅ Add **16 route tests** using Jest & Supertest (migrated from Mocha & Chai)  
 ✅ Integrate **Docker Compose** into the pipeline  
 ✅ Extend **CI/CD to the Cloud** via GitHub Actions  
 ✅ Configure **real-time monitoring** (Cloud Logging / AWS CloudWatch)
+
+---
+
+## 🔮 Upcoming Changes (Feature Branches)
+
+The following improvements are ready on the `feature/supertest-testing` branch and will be merged into `main` soon:
+
+### Test Framework Migration (Mocha/Chai → Jest/Supertest)
+- **16 comprehensive route tests** covering all endpoints:
+  - `GET /` — home page (3 tests)
+  - `GET /about` — about page (2 tests)
+  - `GET /contact` — contact page (2 tests)
+  - `POST /submit-contact` — form submission with valid, partial, and empty data (4 tests)
+  - `404` — undefined routes, nested paths (4 tests)
+  - Static file serving (1 test)
+- **Coverage reporting** enabled via `jest --coverage`
+
+### Modernized CI/CD Pipeline
+- Separated into **2 jobs**: `test` → `build` (build only runs after tests pass)
+- Added **pull_request** trigger (tests run on every PR)
+- Node.js version updated from **18** to **20**
+- Removed Mocha-specific `chmod +x` workaround
+- Docker image tag updated to `node-devops-boilerplate`
+
+### Code Quality
+- Added `.gitignore` (was missing — `node_modules` were tracked in git)
+- `index.js` refactored to export `app` for testability without starting server
+- `package.json` name updated from `my-devops-node-app` to `node-devops-boilerplate`
 
 ## 🏁 Summary
 
