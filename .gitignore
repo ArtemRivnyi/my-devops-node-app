@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Test output
+test_output.txt
+coverage/
+
+# Environment
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*

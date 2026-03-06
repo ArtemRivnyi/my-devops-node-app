@@ -1,18 +1,20 @@
 {
-  "name": "my-devops-node-app",
+  "name": "node-devops-boilerplate",
   "version": "1.0.0",
-  "description": "Простой веб-сервер на Node.js для демонстрации навыков DevOps.",
+  "description": "Production-ready Node.js web server boilerplate with Docker, CI/CD, and Ansible deployment.",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "npx jest --detectOpenHandles --forceExit --coverage",
+    "test:ci": "npx jest --detectOpenHandles --forceExit --ci --coverage"
   },
   "keywords": [
     "node.js",
     "express",
     "devops",
-    "docker"
+    "docker",
+    "boilerplate"
   ],
   "author": "Artem Rivnyi",
   "license": "ISC",
@@ -22,7 +24,14 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "chai": "^5.2.0",
-    "mocha": "^11.7.1"
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "transform": {},
+    "testMatch": [
+      "**/test/**/*.test.js"
+    ]
   }
 }

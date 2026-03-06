@@ -1,73 +1,63 @@
 # .github/workflows/docker-build.yml
 
 # Название рабочего процесса, которое будет отображаться в интерфейсе GitHub Actions.
-name: Docker Image CI
+name: CI/CD Pipeline
 
 # Определяет, когда этот рабочий процесс будет запускаться.
 on:
   # Запускать при каждом push в ветку 'main'.
   push:
     branches: [ main ]
+  # Запускать при открытии PR в ветку 'main'.
+  pull_request:
+    branches: [ main ]
   # Запускать вручную из интерфейса GitHub Actions.
   workflow_dispatch:
 
 # Задачи (jobs), которые будут выполняться в рамках этого рабочего процесса.
 jobs:
-  # Название задачи.
-  build:
-    # Тип раннера (виртуальной машины), на которой будет выполняться задача.
+  # Задача 1: Тестирование
+  test:
     runs-on: ubuntu-latest
-
-    # Шаги (steps) для выполнения задачи.
     steps:
-    # Шаг 1: Проверка кода.
-    # Использует action 'actions/checkout@v4' для клонирования вашего репозитория
-    # на раннер GitHub Actions.
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Шаг 2: Настройка Node.js.
-    # Устанавливает Node.js на раннер для выполнения npm команд.
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
 
-    # Шаг 3: Установка зависимостей Node.js.
-    # Устанавливает все зависимости проекта, включая devDependencies для тестов.
-    - name: Install Node.js dependencies
+    - name: Install dependencies
       run: npm install
 
-    # Шаг 4: Установка прав на выполнение для всех бинарных файлов в node_modules.
-    # Этот шаг явно добавляет права на выполнение для всех файлов в директории .bin,
-    # что должно решить проблему 'Permission denied' для Mocha.
-    - name: Make node_modules binaries executable
-      run: chmod +x ./node_modules/.bin/*
+    - name: Run tests with coverage
+      run: npm test
+      env:
+        NODE_OPTIONS: '--experimental-vm-modules'
 
-    # Шаг 5: Запуск тестов.
-    # Возвращаемся к стандартной команде 'npm test', которая теперь должна работать,
-    # так как права на выполнение установлены.
-    - name: Run tests
-      run: npm test # Возвращено к 'npm test'
+  # Задача 2: Сборка и публикация Docker-образа
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-    # Шаг 6: Настройка Docker Buildx.
-    # Настраивает Buildx для эффективной сборки Docker-образов.
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    # Шаг 7: Вход в Docker Hub.
-    # Использует секреты GitHub для безопасного входа в Docker Hub.
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKER_USERNAME }} # Имя пользователя из секрета GitHub
-        password: ${{ secrets.DOCKER_PASSWORD }} # Пароль из секрета GitHub
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # Шаг 8: Сборка и публикация Docker-образа.
-    # Собирает образ и публикует его в Docker Hub.
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
-        push: true # Устанавливаем 'true' для публикации образа
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-devops-node-app:latest # Тег образа с вашим Docker ID
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/node-devops-boilerplate:latest
+

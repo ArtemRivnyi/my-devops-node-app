@@ -83,7 +83,13 @@ app.use((req, res) => {
   res.status(404).send('<h2>Ошибка 404: Страница не найдена</h2><p>Извините, запрашиваемая страница не существует.</p><a href="/">Вернуться на главную</a>');
 });
 
-// Запуск сервера
-app.listen(PORT, () => {
-  console.log(`[Server] Сервер запущен и слушает на http://localhost:${PORT}`);
-});
+// Экспорт приложения для тестирования
+export { app };
+
+// Запуск сервера только при прямом выполнении файла (не при импорте в тестах)
+const isMainModule = process.argv[1] && import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/'));
+if (isMainModule || process.env.START_SERVER === 'true') {
+  app.listen(PORT, () => {
+    console.log(`[Server] Сервер запущен и слушает на http://localhost:${PORT}`);
+  });
+}
