@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "npx jest --detectOpenHandles --forceExit --coverage",
-    "test:ci": "npx jest --detectOpenHandles --forceExit --ci --coverage"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --forceExit --coverage",
+    "test:ci": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --forceExit --ci --coverage"
   },
   "keywords": [
     "node.js",
