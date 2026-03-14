@@ -89,11 +89,18 @@ After successful deployment, open:
 
 ## 🛠️ CI/CD Flow and Demo
 
-### Architecture Diagram (CI/CD Flow)
+```mermaid
+flowchart LR
+    Push[git push] --> GA[GitHub Actions]
+    GA --> Test[Run Jest Tests\n16 route tests]
+    Test --> Build[Docker Build\nnode-devops-boilerplate]
+    Build --> Deploy[Deploy Container]
+    Deploy --> App[App Running\nlocalhost:3000]
 
-The project utilizes GitHub Actions for Continuous Integration and Continuous Delivery. The flow is as follows:
-
-![CI/CD Flow Diagram](./assets/CI_CD_Flow.png)
+    style GA fill:#2088FF,color:#fff
+    style Test fill:#C21325,color:#fff
+    style Build fill:#2496ED,color:#fff
+```
 
 ## 📊 Monitoring and Logging (Locally)
 
@@ -162,34 +169,6 @@ While this demo runs locally, it includes a **conceptual outline for cloud deplo
 ✅ Integrate **Docker Compose** into the pipeline  
 ✅ Extend **CI/CD to the Cloud** via GitHub Actions  
 ✅ Configure **real-time monitoring** (Cloud Logging / AWS CloudWatch)
-
----
-
-## 🔮 Upcoming Changes (Feature Branches)
-
-The following improvements are ready on the `feature/supertest-testing` branch and will be merged into `main` soon:
-
-### Test Framework Migration (Mocha/Chai → Jest/Supertest)
-- **16 comprehensive route tests** covering all endpoints:
-  - `GET /` — home page (3 tests)
-  - `GET /about` — about page (2 tests)
-  - `GET /contact` — contact page (2 tests)
-  - `POST /submit-contact` — form submission with valid, partial, and empty data (4 tests)
-  - `404` — undefined routes, nested paths (4 tests)
-  - Static file serving (1 test)
-- **Coverage reporting** enabled via `jest --coverage`
-
-### Modernized CI/CD Pipeline
-- Separated into **2 jobs**: `test` → `build` (build only runs after tests pass)
-- Added **pull_request** trigger (tests run on every PR)
-- Node.js version updated from **18** to **20**
-- Removed Mocha-specific `chmod +x` workaround
-- Docker image tag updated to `node-devops-boilerplate`
-
-### Code Quality
-- Added `.gitignore` (was missing — `node_modules` were tracked in git)
-- `index.js` refactored to export `app` for testability without starting server
-- `package.json` name updated from `my-devops-node-app` to `node-devops-boilerplate`
 
 ## 🏁 Summary
 
