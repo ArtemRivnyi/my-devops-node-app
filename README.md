@@ -2,10 +2,13 @@
 
 [![Docker Image CI](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/main.yml/badge.svg )](https://github.com/ArtemRivnyi/my-devops-node-app/actions )
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white )
-![Express.js](https://img.shields.io/badge/Framework-Express.js-000000?style=flat-square&logo=express&logoColor=white )
-![Docker](https://img.shields.io/badge/Containerization-Docker-2496ED?style=flat-square&logo=docker&logoColor=white )
-![PowerShell](https://img.shields.io/badge/Automation-PowerShell-012456?style=flat-square&logo=powershell&logoColor=white )
+<p align="left">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" />
+</p>
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg )](https://opensource.org/licenses/MIT )
 [![Last Commit](https://img.shields.io/github/last-commit/ArtemRivnyi/my-devops-node-app?label=Last%20Update&style=flat-square )](https://github.com/ArtemRivnyi/my-devops-node-app/commits/main )
