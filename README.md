@@ -55,7 +55,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 | **Git & GitHub** | Version control and remote repository |
 | **morgan** | Request logging middleware for Node.js |
 | **Jest & Supertest** | API testing and assertions framework |
-| **Ansible** | Infrastructure-as-Code (IaC) for automated deployments |
+| **Ansible** | Infrastructure automation & configuration management |
 
 ## ⚙️ Running the Application Locally (with Local CI/CD)
 
