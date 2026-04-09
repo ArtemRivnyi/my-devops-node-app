@@ -41,6 +41,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 *   🖥️ Develop a simple web application using **Node.js** and **Express.js**
 *   🐳 Containerize the app using **Docker** for portability and isolation
 *   ⚙️ Set up an automated **local CI/CD pipeline** (build, test, run)
+*   📜 Automate server configuration and deployment using **Ansible**
 *   ☁️ Demonstrate understanding of **cloud deployment & monitoring principles**
 
 ## 🧠 Technologies and Practices Used
@@ -54,6 +55,7 @@ This project serves as a practical demonstration of core DevOps skills, covering
 | **Git & GitHub** | Version control and remote repository |
 | **morgan** | Request logging middleware for Node.js |
 | **Jest & Supertest** | API testing and assertions framework |
+| **Ansible** | Infrastructure-as-Code (IaC) for automated deployments |
 
 ## ⚙️ Running the Application Locally (with Local CI/CD)
 
