@@ -1,6 +1,6 @@
 # 🚀 My DevOps Node.js App
 
-[![Docker Image CI](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/main.yml/badge.svg)](https://github.com/ArtemRivnyi/my-devops-node-app/actions)
+[![Docker Image CI](https://github.com/ArtemRivnyi/my-devops-node-app/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ArtemRivnyi/my-devops-node-app/actions)
 
 <p align="left">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
@@ -10,11 +10,9 @@
   <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" />
 </p>
 
-<p align="left">
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Last Commit](https://img.shields.io/github/last-commit/ArtemRivnyi/my-devops-node-app?label=Last%20Update&style=flat-square)](https://github.com/ArtemRivnyi/my-devops-node-app/commits/main)
 [![GitHub Stars](https://img.shields.io/github/stars/ArtemRivnyi/my-devops-node-app?style=social)](https://github.com/ArtemRivnyi/my-devops-node-app/stargazers)
-</p>
 
 ### 🧩 DevOps Demo Project: Containerized Web Application with Local CI/CD
 
