@@ -26,5 +26,42 @@
     </ul>
     <p>Наслаждайтесь просмотром нашего DevOps-путешествия!</p>
   </main>
+  <canvas id="matrix-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; background-color: #050505;"></canvas>
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let columns;
+    const charSize = 14;
+    let drops = [];
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      columns = Math.floor(width / charSize);
+      drops = [];
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+      }
+    }
+    function draw() {
+      ctx.fillStyle = 'rgba(5, 5, 5, 0.1)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = 'rgba(102, 126, 234, 0.25)'; 
+      ctx.font = charSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = String.fromCharCode(Math.random() * 128);
+        const x = i * charSize;
+        const y = drops[i] * charSize;
+        ctx.fillText(text, x, y);
+        if (y > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    setInterval(draw, 33);
+  </script>
 </body>
 </html>
