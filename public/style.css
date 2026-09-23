@@ -235,3 +235,49 @@ form button:hover {
   form { padding: 25px 20px; }
   form button { width: 100%; }
 }
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 10px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  nav a {
+    padding: 6px 10px;
+    margin: 2px;
+    font-size: 0.82em;
+  }
+  h1 {
+    font-size: 1.7em;
+    letter-spacing: -0.02em;
+  }
+  main {
+    padding: 20px 12px;
+    margin-top: 15px;
+    width: 96%;
+    border-radius: 10px;
+  }
+  ul li {
+    padding: 10px 12px;
+    font-size: 0.92em;
+  }
+  form {
+    padding: 18px 12px;
+    margin-top: 16px;
+    border-radius: 10px;
+  }
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    padding: 10px 12px;
+    font-size: 0.92em;
+  }
+  form button {
+    padding: 12px 18px;
+    font-size: 1em;
+  }
+}
