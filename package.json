@@ -1,6 +1,6 @@
 {
   "name": "node-devops-boilerplate",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Production-ready Node.js web server boilerplate with Docker, CI/CD, and Ansible deployment.",
   "main": "index.js",
   "type": "module",
@@ -17,7 +17,7 @@
     "boilerplate"
   ],
   "author": "Artem Rivnyi",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
