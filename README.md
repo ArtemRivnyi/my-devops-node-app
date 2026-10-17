@@ -87,7 +87,7 @@ Open **PowerShell (not as Administrator)** and run:
 ### Access the running app
 
 After successful deployment, open:  
-👉 [http://localhost:3000/]()
+👉 [http://localhost:3000/](http://localhost:3000/)
 
 ## 🛠️ CI/CD Flow and Demo
 
@@ -191,5 +191,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * 📧 [artemrivnyi@outlook.com](mailto:artemrivnyi@outlook.com)  
 * 🔗 [LinkedIn](https://www.linkedin.com/in/artem-rivnyi/)  
-* 🌐 [Personal Projects](https://personal-page-devops.onrender.com/)  
+* 🌐 [Personal Projects](https://artemrivnyi.com/)  
 * 💻 [GitHub](https://github.com/ArtemRivnyi)
